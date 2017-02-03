@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package smartmate;
+
+message Sort {
+  string field = 1;
+  int32 value = 2;
+}
+
+enum Matcher {
+  STRING = 0;
+  REGEX = 1;
+  OBJECT = 2;
+}
+
+message Where {
+  string field = 1;
+  string value = 2;
+  Matcher matcher = 3;
+}
+
+message QueryRequest {
+  // 'where' will be a serialized JSON object. Generally it's not recommended,
+  // but seems to be the most pragmatic way for this use case.
+  // See https://github.com/grpc/grpc/issues/8432
+  repeated Where where = 1; // empty => all
+  repeated string fields = 2; // empty => all
+  int32 limit = 3; // 0 => unlimited
+  int32 skip = 4;  // 0 => none
+  repeated Sort sort = 5;
+}
+
+message SampleUpdate {
+  string id = 1;
+  repeated string fields = 2;
+  Sample data = 3;
+}
+
+message Sample {
+  string id = 1;
+  string name = 2;
+  int32 age = 3;
+  bool married = 4;
+}
+
+message Samples {
+  repeated Sample samples = 1;
+}
+
+message Empty {}
+
+message IdRequest {
+  string id = 1;
+}
+
+service SamplesService {
+  rpc List (QueryRequest) returns (Samples) {}
+  rpc Insert (Sample) returns (Sample) {}
+  rpc Update (SampleUpdate) returns (Sample) {}
+  rpc Get (IdRequest) returns (Sample) {}
+  rpc Delete (IdRequest) returns (Empty) {}
+}
