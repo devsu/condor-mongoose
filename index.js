@@ -1,2 +1,5 @@
-const BaseService = require('./lib/crud-base-service');
-module.exports = BaseService;
+const CrudBaseService = require('./lib/crud-base-service');
+
+module.exports = {
+  CrudBaseService,
+};

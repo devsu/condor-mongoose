@@ -1,8 +1,8 @@
-const Service = require('./index');
-const BaseService = require('./lib/crud-base-service');
+const condorMongoose = require('./index');
+const CrudBaseService = require('./lib/crud-base-service');
 
 describe('condor-mongoose', () => {
-  it('should expose base-service', () => {
-    expect(Service).toBe(BaseService);
+  it('should expose CrudBaseService', () => {
+    expect(condorMongoose.CrudBaseService).toBe(CrudBaseService);
   });
 });
