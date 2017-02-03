@@ -30,6 +30,15 @@
     "eslint-config-devsu-node": "0.0.2",
     "istanbul": "^0.4.5",
     "jasmine": "^2.5.3",
-    "nsp": "^2.6.2"
+    "mockgoose": "^6.0.8",
+    "nsp": "^2.6.2",
+    "proxyquire": "^1.7.11"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "condor-framework": "0.0.2",
+    "grpc": "^1.1.1",
+    "lodash": "^4.17.4",
+    "mongoose": "^4.8.1"
   }
 }
