@@ -1,0 +1,7 @@
+{
+  "extends": "devsu-node",
+  "rules": {
+    "no-underscore-dangle": "off",
+    "max-lines": [1, 400]
+  }
+}
