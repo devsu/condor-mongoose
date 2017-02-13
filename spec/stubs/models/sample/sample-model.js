@@ -5,9 +5,9 @@ const schema = {
   'name': String,
   'age': Number,
   'married': Boolean,
-  'roles': [{'type': Schema.Types.ObjectId, 'ref': 'Role'}],
+  'relatedModels': [{'type': Schema.Types.ObjectId, 'ref': 'RelatedModel'}],
 };
 
-const SampleModel = mongoose.model('User', new mongoose.Schema(schema));
+const SampleModel = mongoose.model('Sample', new mongoose.Schema(schema));
 
 module.exports = SampleModel;

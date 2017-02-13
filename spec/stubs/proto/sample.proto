@@ -44,13 +44,14 @@ message SampleUpdate {
   Sample data = 3;
 }
 
-message Role {
+message RelatedModel {
   string id = 1;
   string name = 2;
+  string sampleId = 3;
 }
 
-message Roles {
-  repeated Role roles = 1;
+message RelatedModels {
+  repeated RelatedModel relatedModel = 1;
 }
 
 message Sample {
@@ -58,8 +59,7 @@ message Sample {
   string name = 2;
   int32 age = 3;
   bool married = 4;
-  string roleId = 5;
-  optional Roles roles = 6;
+  repeated string relatedModels = 5;
 }
 
 message Samples {
