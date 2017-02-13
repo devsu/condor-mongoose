@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/struct.proto";
+
 package smartmate;
 
 message Sort {
@@ -28,6 +30,12 @@ message QueryRequest {
   int32 limit = 3; // 0 => unlimited
   int32 skip = 4;  // 0 => none
   repeated Sort sort = 5;
+  repeated Include include = 6;
+}
+
+message Include {
+  string name = 1;
+  string modelName = 2;
 }
 
 message SampleUpdate {
@@ -36,11 +44,22 @@ message SampleUpdate {
   Sample data = 3;
 }
 
+message Role {
+  string id = 1;
+  string name = 2;
+}
+
+message Roles {
+  repeated Role roles = 1;
+}
+
 message Sample {
   string id = 1;
   string name = 2;
   int32 age = 3;
   bool married = 4;
+  string roleId = 5;
+  optional Roles roles = 6;
 }
 
 message Samples {
