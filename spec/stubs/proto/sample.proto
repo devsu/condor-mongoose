@@ -30,12 +30,7 @@ message QueryRequest {
   int32 limit = 3; // 0 => unlimited
   int32 skip = 4;  // 0 => none
   repeated Sort sort = 5;
-  repeated Include include = 6;
-}
-
-message Include {
-  string name = 1;
-  string modelName = 2;
+  repeated string includes = 6;
 }
 
 message SampleUpdate {
@@ -47,11 +42,11 @@ message SampleUpdate {
 message RelatedModel {
   string id = 1;
   string name = 2;
-  string sampleId = 3;
+  string sample = 3;
 }
 
 message RelatedModels {
-  repeated RelatedModel relatedModel = 1;
+  repeated RelatedModel relatedModels = 1;
 }
 
 message Sample {
@@ -59,7 +54,7 @@ message Sample {
   string name = 2;
   int32 age = 3;
   bool married = 4;
-  repeated string relatedModels = 5;
+  RelatedModels relatedModels = 5;
 }
 
 message Samples {
