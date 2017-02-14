@@ -1,6 +1,6 @@
 {
   "name": "condor-mongoose",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Utils to work with mongoose and condor GRPC framework",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,6 @@
     "eslint-config-devsu-node": "0.0.2",
     "istanbul": "^0.4.5",
     "jasmine": "^2.5.3",
-    "mockgoose": "^6.0.8",
     "nsp": "^2.6.2",
     "proxyquire": "^1.7.11"
   },
@@ -39,6 +38,7 @@
     "condor-framework": "0.0.2",
     "grpc": "^1.1.1",
     "lodash": "^4.17.4",
-    "mongoose": "^4.8.1"
+    "mongoose": "^4.8.1",
+    "mockgoose": "^6.0.8"
   }
 }
