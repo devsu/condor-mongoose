@@ -16,7 +16,7 @@ lib-cov
 # Coverage directory used by tools like istanbul
 coverage
 
-# nyc test.spec.js coverage
+# nyc test coverage
 .nyc_output
 
 # Dependency directories
