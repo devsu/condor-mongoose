@@ -28,12 +28,12 @@ message QueryRequest {
   int32 limit = 3; // 0 => unlimited
   int32 skip = 4;  // 0 => none
   repeated Sort sort = 5;
-  repeated string includes = 6;
+  repeated string populate = 6;
 }
 
 message GetRequest {
   string id = 1;
-  repeated string includes = 2;
+  repeated string populate = 2;
 }
 
 message SampleUpdate {
