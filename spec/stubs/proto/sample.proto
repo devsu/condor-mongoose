@@ -31,6 +31,11 @@ message QueryRequest {
   repeated string includes = 6;
 }
 
+message GetRequest {
+  string id = 1;
+  repeated string includes = 2;
+}
+
 message SampleUpdate {
   string id = 1;
   repeated string fields = 2;
@@ -68,6 +73,6 @@ service SamplesService {
   rpc List (QueryRequest) returns (Samples) {}
   rpc Insert (Sample) returns (Sample) {}
   rpc Update (SampleUpdate) returns (Sample) {}
-  rpc Get (IdRequest) returns (Sample) {}
+  rpc Get (GetRequest) returns (Sample) {}
   rpc Delete (IdRequest) returns (Empty) {}
 }
