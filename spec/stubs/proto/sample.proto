@@ -28,6 +28,12 @@ message QueryRequest {
   int32 limit = 3; // 0 => unlimited
   int32 skip = 4;  // 0 => none
   repeated Sort sort = 5;
+  repeated string populate = 6;
+}
+
+message GetRequest {
+  string id = 1;
+  repeated string populate = 2;
 }
 
 message SampleUpdate {
@@ -36,11 +42,21 @@ message SampleUpdate {
   Sample data = 3;
 }
 
+message RelatedModel {
+  string id = 1;
+  string name = 2;
+  string sample = 3;
+}
+
 message Sample {
   string id = 1;
   string name = 2;
   int32 age = 3;
   bool married = 4;
+  // se cambio por posibles problemas cuando se usa insert,
+  // ya que el valor por defecto es null y no hay como setear un default value (primitivos si),
+  // en mongoose tampoco se pudo setear un valor por defecto.
+  repeated RelatedModel relatedModels = 5;
 }
 
 message Samples {
@@ -57,6 +73,6 @@ service SamplesService {
   rpc List (QueryRequest) returns (Samples) {}
   rpc Insert (Sample) returns (Sample) {}
   rpc Update (SampleUpdate) returns (Sample) {}
-  rpc Get (IdRequest) returns (Sample) {}
+  rpc Get (GetRequest) returns (Sample) {}
   rpc Delete (IdRequest) returns (Empty) {}
 }
