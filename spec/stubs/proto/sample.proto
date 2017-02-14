@@ -45,16 +45,15 @@ message RelatedModel {
   string sample = 3;
 }
 
-message RelatedModels {
-  repeated RelatedModel relatedModels = 1;
-}
-
 message Sample {
   string id = 1;
   string name = 2;
   int32 age = 3;
   bool married = 4;
-  RelatedModels relatedModels = 5;
+  // se cambio por posibles problemas cuando se usa insert,
+  // ya que el valor por defecto es null y no hay como setear un default value (primitivos si),
+  // en mongoose tampoco se pudo setear un valor por defecto.
+  repeated RelatedModel relatedModels = 5;
 }
 
 message Samples {
