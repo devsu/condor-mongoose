@@ -26,14 +26,15 @@
   },
   "homepage": "https://github.com/devsu/condor-mongoose#readme",
   "devDependencies": {
+    "bluebird": "^3.4.7",
     "eslint": "^3.14.1",
     "eslint-config-devsu-node": "0.0.2",
     "grpc": "^1.1.1",
     "istanbul": "^0.4.5",
     "jasmine": "^2.5.3",
+    "mockgoose": "^6.0.8",
     "nsp": "^2.6.2",
-    "proxyquire": "^1.7.11",
-    "mockgoose": "^6.0.8"
+    "proxyquire": "^1.7.11"
   },
   "dependencies": {
     "lodash": "^4.17.4"
