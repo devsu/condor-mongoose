@@ -6,14 +6,14 @@ const schema = {
   'married': Boolean,
 };
 
-const SampleModelSchema = new mongoose.Schema(schema);
+const ModelSchema = new mongoose.Schema(schema);
 
-SampleModelSchema.virtual('relatedModels', {
+ModelSchema.virtual('relatedModels', {
   'ref': 'RelatedModel',
   'localField': '_id',
   'foreignField': 'sample',
 });
 
-const SampleModel = mongoose.model('Sample', SampleModelSchema);
+const Model = mongoose.model('Sample', ModelSchema);
 
-module.exports = SampleModel;
+module.exports = Model;

@@ -51,6 +51,5 @@ function init() {
       return mongooseModel2.save();
     }).then((model) => {
       data.relatedModels.model2 = CrudBaseService.getModelObject(model);
-
     });
 }

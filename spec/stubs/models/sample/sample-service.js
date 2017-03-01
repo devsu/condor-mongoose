@@ -1,8 +1,8 @@
-const SampleModel = require('./sample-model');
-const CrudBaseService = require('../../../../lib/crud-base-service');
+const Model = require('./sample-model');
+const BaseService = require('../../../../lib/base-service');
 
-module.exports = class extends CrudBaseService {
+module.exports = class extends BaseService {
   constructor() {
-    super(SampleModel);
+    super(Model);
   }
 };
