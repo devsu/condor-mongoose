@@ -1,0 +1,12 @@
+{
+  "models": {
+    "defaultModel1": { "name": "Juan Pablo", "age": 33, "married": false },
+    "defaultModel2": { "name": "Juan Diego", "age": 33, "married": true },
+    "defaultModel3": { "name": "Jorge Eduardo", "age": 29, "married": true }
+  },
+  "relatedModels": {
+    "defaultRelatedModel1": {"name": "related1"},
+    "defaultRelatedModel2": {"name": "related2"},
+    "defaultRelatedModel3": {"name": "related3"}
+  }
+}
