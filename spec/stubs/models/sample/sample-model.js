@@ -1,19 +1,24 @@
 const mongoose = require('mongoose');
 
-const schema = {
+const childSchema = {
+  'name': String,
+};
+const ChildSchema = new mongoose.Schema(childSchema);
+
+const parentSchema = {
   'name': String,
   'age': Number,
   'married': Boolean,
+  'children': [ChildSchema],
 };
+const ParentSchema = new mongoose.Schema(parentSchema);
 
-const ModelSchema = new mongoose.Schema(schema);
-
-ModelSchema.virtual('relatedModels', {
+ParentSchema.virtual('relatedModels', {
   'ref': 'RelatedModel',
   'localField': '_id',
   'foreignField': 'sample',
 });
 
-const Model = mongoose.model('Sample', ModelSchema);
+const Model = mongoose.model('Sample', ParentSchema);
 
 module.exports = Model;
