@@ -53,7 +53,7 @@ message Child {
   string name = 2;
 }
 
-message PushRequest {
+message ChildrenRequest {
   string id = 1;
   repeated Child children = 2;
 }
@@ -85,6 +85,7 @@ service SamplesService {
   rpc Update (SampleUpdate) returns (Sample) {}
   rpc Get (GetRequest) returns (Sample) {}
   rpc Delete (IdRequest) returns (Empty) {}
-  rpc PushChildren (PushRequest) returns (Empty) {}
-
+  rpc PushChildren (ChildrenRequest) returns (Empty) {}
+  rpc AddToSetChildren (ChildrenRequest) returns (Empty) {}
+  rpc RemoveChildren (ChildrenRequest) returns (Empty) {}
 }
