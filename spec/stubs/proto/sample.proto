@@ -88,4 +88,5 @@ service SamplesService {
   rpc PushChildren (ChildrenRequest) returns (Empty) {}
   rpc AddToSetChildren (ChildrenRequest) returns (Empty) {}
   rpc RemoveChildren (ChildrenRequest) returns (Empty) {}
+  rpc ReplaceChildren (ChildrenRequest) returns (Empty) {}
 }
