@@ -65,8 +65,9 @@ message Sample {
   bool married = 4;
   // subdocuments (embeded schema)
   repeated Child children = 5;
+  Child child = 6;
   // related documents (another schema)
-  repeated RelatedModel relatedModels = 6;
+  repeated RelatedModel relatedModels = 7;
 }
 
 message Samples {
