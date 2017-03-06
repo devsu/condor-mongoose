@@ -67,7 +67,8 @@ message Sample {
   repeated Child children = 5;
   Child child = 6;
   // related documents (another schema)
-  repeated RelatedModel relatedModels = 7;
+  repeated string tags = 7;
+  repeated RelatedModel relatedModels = 8;
 }
 
 message Samples {
