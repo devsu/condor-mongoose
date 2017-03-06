@@ -2,6 +2,20 @@
 Utils to work with mongoose and condor GRPC framework
 
 ## How to use
+for each service you have to create a container folder, like
+```
+─ sample.proto      // proto
+─ first-service     // folder
+  └─ model.js
+  └─ service.js
+─ second-service    // folder
+  └─ model.js
+  └─ service.js
+─ another-service   // folder
+  └─ model.js
+  └─ service.js
+```
+
 1. Define the proto file like **business.proto**
 
 business.proto
@@ -59,27 +73,29 @@ service PersonsService {
   rpc Delete (IdRequest) returns (Empty) {}
 }
 ```
-
-2. Create the service that extends from **condor-mongoose** like **person-service.js**
+2. Create the mongoose schema, the file name **most** be called **model.js**
 ```js
 const mongoose = require('mongoose');
-const CrudBaseService = require('condor-mongoose').CrudBaseService;
 
 const personSchema = {
-    'name': 'string',
-    'age': 'number',
+    'name': String,
+    'age': Number,
 };
+
 const Person = mongoose.model('Person', new mongoose.Schema(personSchema));
 
+module.exports = Person;
+```
+
+3. Create the service that extends from **condor-mongoose** like **person-service.js**
+```js
+const CrudBaseService = require('condor-mongoose').CrudBaseService;
+
 module.exports = class extends CrudBaseService {
-  constructor() {
-    super(Person);
-  }
 };
 ```
 
-
-3. Initialize the service
+4. Initialize the service
 ```js
 const grpc = require('grpc');
 const mongoose = require('mongoose');
