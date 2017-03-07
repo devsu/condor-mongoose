@@ -73,7 +73,7 @@ service PersonsService {
   rpc Delete (IdRequest) returns (Empty) {}
 }
 ```
-2. Create the mongoose schema, the file name **most** be called **model.js**
+2. Create the mongoose schema, the file name **must** be called **model.js**
 ```js
 const mongoose = require('mongoose');
 
