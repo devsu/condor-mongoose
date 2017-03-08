@@ -18,7 +18,7 @@ const ParentSchema = new mongoose.Schema(parentSchema);
 ParentSchema.virtual('relatedModels', {
   'ref': 'RelatedModel',
   'localField': '_id',
-  'foreignField': 'sample',
+  'foreignField': 'model',
 });
 
 const Model = mongoose.model('Model', ParentSchema);

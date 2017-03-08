@@ -36,16 +36,16 @@ message GetRequest {
   repeated string populate = 2;
 }
 
-message SampleUpdate {
+message ModelUpdate {
   string id = 1;
   repeated string fields = 2;
-  Sample data = 3;
+  Model data = 3;
 }
 
 message RelatedModel {
   string id = 1;
   string name = 2;
-  string sample = 3;
+  string model = 3;
 }
 
 message Child {
@@ -58,7 +58,7 @@ message ChildrenRequest {
   repeated Child children = 2;
 }
 
-message Sample {
+message Model {
   string id = 1;
   string name = 2;
   int32 age = 3;
@@ -71,8 +71,8 @@ message Sample {
   repeated RelatedModel relatedModels = 8;
 }
 
-message Samples {
-  repeated Sample samples = 1;
+message Models {
+  repeated Model models = 1;
 }
 
 message Empty {}
@@ -82,10 +82,10 @@ message IdRequest {
 }
 
 service SamplesService {
-  rpc List (QueryRequest) returns (Samples) {}
-  rpc Insert (Sample) returns (Sample) {}
-  rpc Update (SampleUpdate) returns (Sample) {}
-  rpc Get (GetRequest) returns (Sample) {}
+  rpc List (QueryRequest) returns (Models) {}
+  rpc Insert (Model) returns (Model) {}
+  rpc Update (ModelUpdate) returns (Model) {}
+  rpc Get (GetRequest) returns (Model) {}
   rpc Delete (IdRequest) returns (Empty) {}
   rpc PushChildren (ChildrenRequest) returns (Empty) {}
   rpc AddToSetChildren (ChildrenRequest) returns (Empty) {}
