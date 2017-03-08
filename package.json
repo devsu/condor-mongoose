@@ -40,7 +40,7 @@
     "lodash": "^4.17.4"
   },
   "peerDependencies": {
-    "condor-framework": "0.0.x",
-    "mongoose": "4.8.x"
+    "condor-framework": "1.x",
+    "mongoose": "4.x"
   }
 }
