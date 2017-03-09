@@ -86,9 +86,9 @@ const personSchema = {
 const Person = mongoose.model('Person', new mongoose.Schema(personSchema));
 
 module.exports = class extends CrudBaseService {
-    constructor() {
-        super(Person)
-    }
+  constructor() {
+    super(Person);
+  }
 };
 ```
 
