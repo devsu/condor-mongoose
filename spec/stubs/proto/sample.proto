@@ -58,6 +58,11 @@ message ChildrenRequest {
   repeated Child children = 2;
 }
 
+message RelatedModelsRequest {
+  string id = 1;
+  repeated RelatedModel relatedModels = 2;
+}
+
 message Model {
   string id = 1;
   string name = 2;
@@ -88,9 +93,12 @@ service SamplesService {
   rpc Update (ModelUpdate) returns (Model) {}
   rpc Get (GetRequest) returns (Model) {}
   rpc Delete (IdRequest) returns (Empty) {}
+
   rpc PushChildren (ChildrenRequest) returns (Empty) {}
   rpc AddToSetChildren (ChildrenRequest) returns (Empty) {}
   rpc RemoveChildren (ChildrenRequest) returns (Empty) {}
   rpc UpdateChildren (ChildrenRequest) returns (Empty) {}
   rpc ReplaceChildren (ChildrenRequest) returns (Empty) {}
+
+  rpc PushRelatedModels (RelatedModelsRequest) returns (Empty) {}
 }
