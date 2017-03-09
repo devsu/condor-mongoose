@@ -12,10 +12,12 @@ const parentSchema = {
   'children': [ChildSchema],
   'child': ChildSchema,
   'tags': [String],
+  // 'relatedModels': [{'type': Schema.Types.ObjectId, 'ref': 'RelatedModel'}],
+  // 'relatedModel': {'type': Schema.Types.ObjectId, 'ref': 'RelatedModel'},
 };
 const ParentSchema = new mongoose.Schema(parentSchema);
 
-ParentSchema.virtual('relatedModels', {
+ParentSchema.virtual('virtualRelatedModels', {
   'ref': 'RelatedModel',
   'localField': '_id',
   'foreignField': 'model',
