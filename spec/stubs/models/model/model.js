@@ -12,8 +12,7 @@ const parentSchema = {
   'children': [ChildSchema],
   'child': ChildSchema,
   'tags': [String],
-  // 'relatedModels': [{'type': Schema.Types.ObjectId, 'ref': 'RelatedModel'}],
-  // 'relatedModel': {'type': Schema.Types.ObjectId, 'ref': 'RelatedModel'},
+  'relatedModels': [{'type': mongoose.Schema.Types.ObjectId, 'ref': 'RelatedModel'}],
 };
 const ParentSchema = new mongoose.Schema(parentSchema);
 

@@ -69,6 +69,7 @@ message Model {
   // related documents (another schema)
   repeated string tags = 7;
   repeated RelatedModel virtualRelatedModels = 8;
+  repeated RelatedModel relatedModels = 9;
 }
 
 message Models {
