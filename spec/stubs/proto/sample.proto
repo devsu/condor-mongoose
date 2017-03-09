@@ -101,4 +101,7 @@ service SamplesService {
   rpc ReplaceChildren (ChildrenRequest) returns (Empty) {}
 
   rpc PushRelatedModels (RelatedModelsRequest) returns (Empty) {}
+  rpc AddToSetRelatedModels (RelatedModelsRequest) returns (Empty) {}
+  rpc RemoveRelatedModels (RelatedModelsRequest) returns (Empty) {}
+  rpc ReplaceRelatedModels (RelatedModelsRequest) returns (Empty) {}
 }
