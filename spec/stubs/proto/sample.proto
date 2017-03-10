@@ -36,31 +36,49 @@ message GetRequest {
   repeated string populate = 2;
 }
 
-message SampleUpdate {
+message ModelUpdate {
   string id = 1;
   repeated string fields = 2;
-  Sample data = 3;
+  Model data = 3;
 }
 
 message RelatedModel {
   string id = 1;
   string name = 2;
-  string sample = 3;
+  string model = 3;
 }
 
-message Sample {
+message Child {
+  string id = 1;
+  string name = 2;
+}
+
+message ChildrenRequest {
+  string id = 1;
+  repeated Child children = 2;
+}
+
+message RelatedModelsRequest {
+  string id = 1;
+  repeated RelatedModel relatedModels = 2;
+}
+
+message Model {
   string id = 1;
   string name = 2;
   int32 age = 3;
   bool married = 4;
-  // se cambio por posibles problemas cuando se usa insert,
-  // ya que el valor por defecto es null y no hay como setear un default value (primitivos si),
-  // en mongoose tampoco se pudo setear un valor por defecto.
-  repeated RelatedModel relatedModels = 5;
+  // subdocuments (embeded schema)
+  repeated Child children = 5;
+  Child child = 6;
+  // related documents (another schema)
+  repeated string tags = 7;
+  repeated RelatedModel virtualRelatedModels = 8;
+  repeated RelatedModel relatedModels = 9;
 }
 
-message Samples {
-  repeated Sample samples = 1;
+message Models {
+  repeated Model models = 1;
 }
 
 message Empty {}
@@ -70,9 +88,20 @@ message IdRequest {
 }
 
 service SamplesService {
-  rpc List (QueryRequest) returns (Samples) {}
-  rpc Insert (Sample) returns (Sample) {}
-  rpc Update (SampleUpdate) returns (Sample) {}
-  rpc Get (GetRequest) returns (Sample) {}
+  rpc List (QueryRequest) returns (Models) {}
+  rpc Insert (Model) returns (Model) {}
+  rpc Update (ModelUpdate) returns (Model) {}
+  rpc Get (GetRequest) returns (Model) {}
   rpc Delete (IdRequest) returns (Empty) {}
+
+  rpc PushChildren (ChildrenRequest) returns (Empty) {}
+  rpc AddToSetChildren (ChildrenRequest) returns (Empty) {}
+  rpc RemoveChildren (ChildrenRequest) returns (Empty) {}
+  rpc UpdateChildren (ChildrenRequest) returns (Empty) {}
+  rpc ReplaceChildren (ChildrenRequest) returns (Empty) {}
+
+  rpc PushRelatedModels (RelatedModelsRequest) returns (Empty) {}
+  rpc AddToSetRelatedModels (RelatedModelsRequest) returns (Empty) {}
+  rpc RemoveRelatedModels (RelatedModelsRequest) returns (Empty) {}
+  rpc ReplaceRelatedModels (RelatedModelsRequest) returns (Empty) {}
 }

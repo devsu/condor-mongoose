@@ -59,16 +59,16 @@ service PersonsService {
   rpc Delete (IdRequest) returns (Empty) {}
 }
 ```
-
 2. Create the service that extends from **condor-mongoose** like **person-service.js**
 ```js
-const mongoose = require('mongoose');
 const CrudBaseService = require('condor-mongoose').CrudBaseService;
+const mongoose = require('mongoose');
 
 const personSchema = {
-    'name': 'string',
-    'age': 'number',
+    'name': String,
+    'age': Number,
 };
+
 const Person = mongoose.model('Person', new mongoose.Schema(personSchema));
 
 module.exports = class extends CrudBaseService {
@@ -78,20 +78,16 @@ module.exports = class extends CrudBaseService {
 };
 ```
 
-
 3. Initialize the service
 ```js
-const grpc = require('grpc');
 const mongoose = require('mongoose');
 const Condor = require('condor-framework');
 const Promise = require('bluebird');
 
-const PersonService = require('./person-service');
-const protoPath = './bussiness.proto';
-
 mongoose.Promise = Promise;
-
 mongoose.connect('mongodb://localhost/business');
+
+const protoPath = './bussiness.proto';
 condor = new Condor()
   .addService(protoPath, 'business.PersonService', new PersonService())
   .start();
