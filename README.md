@@ -2,20 +2,6 @@
 Utils to work with mongoose and condor GRPC framework
 
 ## How to use
-for each service you have to create a container folder, like
-```
-─ sample.proto      // proto
-─ first-service     // folder
-  └─ model.js
-  └─ service.js
-─ second-service    // folder
-  └─ model.js
-  └─ service.js
-─ another-service   // folder
-  └─ model.js
-  └─ service.js
-```
-
 1. Define the proto file like **business.proto**
 
 business.proto
