@@ -59,7 +59,10 @@ service PersonsService {
   rpc Delete (IdRequest) returns (Empty) {}
 }
 ```
-2. Create the service that extends from **condor-mongoose** like **person-service.js**
+2. Create a service that extends from **CrudBaseService** or **CrudBaseServiceFull** in **condor-mongoose** like **person-service.js**
+
+**Note:** *CrudBaseService* containing base methods (insert, update, delete, get and list).
+*CrudBaseServiceFull* containing *CrudBaseService* methods, adding *related model* methods (push, addToSet, remove and replace) and *sub document* methods (push, addToSet, remove, update and replace). 
 ```js
 const CrudBaseService = require('condor-mongoose').CrudBaseService;
 const mongoose = require('mongoose');
