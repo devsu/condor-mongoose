@@ -10,7 +10,7 @@ const parentSchema = {
   'age': Number,
   'married': Boolean,
   'children': [ChildSchema],
-  'child': ChildSchema,
+  'subDoc': ChildSchema,
   'tags': [String],
   'relatedModels': [{'type': mongoose.Schema.Types.ObjectId, 'ref': 'RelatedModel'}],
   'relatedModel': {'type': mongoose.Schema.Types.ObjectId, 'ref': 'RelatedModel'},

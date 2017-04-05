@@ -48,9 +48,19 @@ message RelatedModel {
   string model = 3;
 }
 
+message RelatedModelRequest {
+  string id = 1;
+  string relatedModelId = 2;
+}
+
 message Child {
   string id = 1;
   string name = 2;
+}
+
+message ChildRequest {
+  string id = 1;
+  Child child = 2;
 }
 
 message ChildrenRequest {
@@ -70,9 +80,9 @@ message Model {
   bool married = 4;
   // subdocuments (embeded schema)
   repeated Child children = 5;
-  Child child = 6;
-  // related documents (another schema)
+  Child subDoc = 6;
   repeated string tags = 7;
+  // related documents (another schema)
   repeated RelatedModel virtualRelatedModels = 8;
   repeated RelatedModel relatedModels = 9;
 }
@@ -93,6 +103,12 @@ service SamplesService {
   rpc Update (ModelUpdate) returns (Model) {}
   rpc Get (GetRequest) returns (Model) {}
   rpc Delete (IdRequest) returns (Empty) {}
+
+  rpc AddChild (ChildRequest) returns (Empty) {}
+  rpc RemoveChild (ChildRequest) returns (Empty) {}
+
+  rpc AddRelatedModel (RelatedModelRequest) returns (Empty) {}
+  rpc RemoveRelatedModel (RelatedModelRequest) returns (Empty) {}
 
   rpc PushChildren (ChildrenRequest) returns (Empty) {}
   rpc AddToSetChildren (ChildrenRequest) returns (Empty) {}
