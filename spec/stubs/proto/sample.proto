@@ -42,6 +42,12 @@ message ModelUpdate {
   Model data = 3;
 }
 
+message AlternativeModelUpdate {
+  string id = 1;
+  repeated string fields = 2;
+  AlternativeModel data = 3;
+}
+
 message RelatedModel {
   string id = 1;
   string name = 2;
@@ -91,6 +97,22 @@ message Models {
   repeated Model models = 1;
 }
 
+message AlternativeModel {
+  string id = 1;
+  string name = 2;
+  int32 age = 3;
+  bool married = 4;
+  // subdocuments (embeded schema)
+  repeated Child child = 5;
+  repeated string tags = 6;
+  // related documents (another schema)
+  repeated RelatedModel relatedModel = 7;
+}
+
+message AlternativeModels {
+  repeated AlternativeModel models = 1;
+}
+
 message Empty {}
 
 message IdRequest {
@@ -102,6 +124,31 @@ service SamplesService {
   rpc Insert (Model) returns (Model) {}
   rpc Update (ModelUpdate) returns (Model) {}
   rpc Get (GetRequest) returns (Model) {}
+  rpc Delete (IdRequest) returns (Empty) {}
+
+  rpc AddChild (ChildRequest) returns (Empty) {}
+  rpc RemoveChild (ChildRequest) returns (Empty) {}
+
+  rpc AddRelatedModel (RelatedModelRequest) returns (Empty) {}
+  rpc RemoveRelatedModel (RelatedModelRequest) returns (Empty) {}
+
+  rpc PushChildren (ChildrenRequest) returns (Empty) {}
+  rpc AddToSetChildren (ChildrenRequest) returns (Empty) {}
+  rpc RemoveChildren (ChildrenRequest) returns (Empty) {}
+  rpc UpdateChildren (ChildrenRequest) returns (Empty) {}
+  rpc ReplaceChildren (ChildrenRequest) returns (Empty) {}
+
+  rpc PushRelatedModels (RelatedModelsRequest) returns (Empty) {}
+  rpc AddToSetRelatedModels (RelatedModelsRequest) returns (Empty) {}
+  rpc RemoveRelatedModels (RelatedModelsRequest) returns (Empty) {}
+  rpc ReplaceRelatedModels (RelatedModelsRequest) returns (Empty) {}
+}
+
+service AlternativeService {
+  rpc List (QueryRequest) returns (AlternativeModels) {}
+  rpc Insert (AlternativeModel) returns (AlternativeModel) {}
+  rpc Update (ModelUpdate) returns (AlternativeModel) {}
+  rpc Get (GetRequest) returns (AlternativeModel) {}
   rpc Delete (IdRequest) returns (Empty) {}
 
   rpc AddChild (ChildRequest) returns (Empty) {}
