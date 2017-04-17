@@ -2,9 +2,8 @@
 Utils to work with mongoose and condor GRPC framework
 
 ## How to use
-1. Define the proto file like **business.proto**
+1. Define the proto file.
 
-business.proto
 ```proto
 syntax = "proto3";
 package bussiness;
@@ -59,10 +58,7 @@ service PersonsService {
   rpc Delete (IdRequest) returns (Empty) {}
 }
 ```
-2. Create a service that extends from **CrudBaseService** like **person-service.js**
-
-**Note:** **CrudBaseService** containing **base** methods (insert, update, delete, get, list), 
-and **sub document** methods (push, addToSet, remove, update and replace) and **related model** methods (push, addToSet, remove and replace).
+2. Create a service that extends from **CrudBaseService**.
  
 ```js
 const CrudBaseService = require('condor-mongoose');
@@ -81,12 +77,16 @@ module.exports = class extends CrudBaseService {
   }
 };
 ```
+**Note:** **CrudBaseService** contains **base** methods (insert, update, delete, get, list), 
+**sub documents** methods (push, addToSet, remove, update and replace) and **related models** 
+methods (push, addToSet, remove and replace).
 
-3. Initialize the service
+3. Initialize the service.
 ```js
 const mongoose = require('mongoose');
 const Condor = require('condor-framework');
 const Promise = require('bluebird');
+const PersonService = require('./models/personService');
 
 mongoose.Promise = Promise;
 mongoose.connect('mongodb://localhost/business');
