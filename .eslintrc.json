@@ -1,6 +1,6 @@
 {
   "extends": "devsu-node",
   "rules": {
-    "no-console": "off"
+    "no-console": ["error", { "allow": ["warn"] }]
   }
 }

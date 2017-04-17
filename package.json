@@ -1,6 +1,6 @@
 {
   "name": "condor-mongoose",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Utils to work with mongoose and condor GRPC framework",
   "main": "index.js",
   "scripts": {
@@ -37,7 +37,8 @@
     "proxyquire": "^1.7.11"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "pluralize": "^4.0.0"
   },
   "peerDependencies": {
     "condor-framework": "1.x",
