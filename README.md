@@ -1,6 +1,9 @@
 # condor-mongoose
 Utils to work with mongoose and condor GRPC framework
 
+[![Build Status](https://travis-ci.org/devsu/condor-mongoose.svg?branch=master)](https://travis-ci.org/devsu/condor-mongoose)
+[![Coverage Status](https://coveralls.io/repos/github/devsu/condor-mongoose/badge.svg?branch=master)](https://coveralls.io/github/devsu/condor-mongoose?branch=master)
+
 ## How to use
 1. Define the proto file.
 
