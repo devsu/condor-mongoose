@@ -1,8 +1,26 @@
 # condor-mongoose
-Utils to work with mongoose and condor GRPC framework
+This module allows you to create CRUD services over GRPC in less than 5 minutes.
 
 [![Build Status](https://travis-ci.org/devsu/condor-mongoose.svg?branch=master)](https://travis-ci.org/devsu/condor-mongoose)
 [![Coverage Status](https://coveralls.io/repos/github/devsu/condor-mongoose/badge.svg?branch=master)](https://coveralls.io/github/devsu/condor-mongoose?branch=master)
+
+## How to use (Summary)
+
+- Just define your protos, and your mongoose models.
+- Setup your service using [condor-framework](https://github.com/devsu/condor-framework) and extending the `CrudBaseService` class.
+- Voilá, you have a working CRUD service over gRPC, connected to mongo (using mongoose).
+
+## Features
+
+- Automatic CRUD generation (list, insert, update, get, delete)
+- Supports subdocuments and related models
+- Allows queries (where, fields, limit, skip, sort)
+- Allows automatic population of related models (populate)
+
+## Installation
+```bash
+npm i --save condor-framework mongoose condor-mongoose
+```
 
 ## How to use
 1. Define the proto file.
@@ -100,11 +118,6 @@ condor = new Condor()
   .start();
 ```
 
-## Installation
-```bash
-npm install --save condor-mongoose
-```
-
 ## License and Credits
 
-MIT License. Copyright 2017 [Devsu LLC](https://devsu.com)
+MIT License. Copyright 2017 *Devsu LLC*, a great [node development team](https://devsu.com)
