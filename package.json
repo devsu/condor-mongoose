@@ -34,7 +34,7 @@
     "grpc": "^1.1.1",
     "istanbul": "^0.4.5",
     "jasmine": "^2.5.3",
-    "mockgoose": "^6.0.8",
+    "mockgoose": "^7.3.1",
     "mongoose": "^4.9.9",
     "nsp": "^2.6.2",
     "proxyquire": "^1.7.11"
