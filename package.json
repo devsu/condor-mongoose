@@ -35,7 +35,7 @@
     "istanbul": "^0.4.5",
     "jasmine": "^2.5.3",
     "mockgoose": "^6.0.8",
-    "mongoose": "^4.9.6",
+    "mongoose": "^4.9.9",
     "nsp": "^2.6.2",
     "proxyquire": "^1.7.11"
   },
