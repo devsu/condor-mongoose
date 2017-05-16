@@ -1,6 +1,6 @@
 {
   "name": "condor-mongoose",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Utils to work with mongoose and condor GRPC framework",
   "main": "index.js",
   "scripts": {
