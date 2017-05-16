@@ -1,5 +1,5 @@
-const mockgoose = require('mockgoose');
 const mongoose = require('mongoose');
+const mockgoose = require('mockgoose');
 const Promise = require('bluebird');
 
 mongoose.Promise = Promise;
@@ -14,12 +14,5 @@ module.exports = class {
 
   static disconnectMongoose() {
     return mongoose.disconnect();
-  }
-
-  static runCommonServiceTests(Service, Model) {
-    it('should create instances of Service', () => {
-      const service = new Service(Model);
-      expect(service instanceof Service).toBeTruthy();
-    });
   }
 };
