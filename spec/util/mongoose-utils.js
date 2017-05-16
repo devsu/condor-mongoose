@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
-const Mockgoose = require('mockgoose').Mockgoose;
-const mockgoose = new Mockgoose(mongoose);
+const mockgoose = require('mockgoose');
+const Promise = require('bluebird');
+
+mongoose.Promise = Promise;
 
 module.exports = class {
   static initializeMongoose() {
-    return mockgoose.prepareStorage()
+    return mockgoose(mongoose)
       .then(() => {
         return mongoose.connect('mongodb://localhost/db');
       });
